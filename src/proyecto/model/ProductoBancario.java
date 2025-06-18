@@ -7,7 +7,10 @@ public class ProductoBancario {
   private int sucursal;
   private int numeroProducto;
 
-  public ProductoBancario(int banco, int sucursal) {
+  public ProductoBancario(int banco, int sucursal) throws ProductoBancarioException {
+    if (banco < 0 || sucursal < 0) {
+      throw new ProductoBancarioException("El banco y la sucursal deben ser valores positivos.");
+    }
     this.banco = banco;
     this.sucursal = sucursal;
     this.numeroProducto = contadorProductos++;
